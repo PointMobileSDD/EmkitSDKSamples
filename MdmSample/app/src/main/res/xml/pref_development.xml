@@ -1,0 +1,27 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreference android:key="keep_screen_on"
+        android:title="@string/pref_title_keep_screen_on"
+        android:summary="@string/pref_summary_keep_screen_on"
+        android:persistent="false" />
+
+    <Preference android:key="mock_location_app"
+        android:title="@string/pref_title_mock_location_app" />
+
+    <Preference android:key="uninstall_block"
+        android:title="@string/pref_title_uninstall_block"
+        android:summary="@string/pref_summary_uninstall_block"/>
+
+    <Preference android:key="uninstall_app"
+        android:title="@string/pref_title_uninstall_app"
+        android:summary="@string/pref_summary_uninstall_app"/>
+
+    <Preference android:key="hide_app"
+        android:title="@string/pref_title_hide_app"
+        android:summary="@string/pref_summary_hide_app"/>
+
+    <Preference android:key="disable_app"
+        android:title="@string/pref_title_disable_app"
+        android:summary="@string/pref_summary_disable_app" />
+
+</PreferenceScreen>

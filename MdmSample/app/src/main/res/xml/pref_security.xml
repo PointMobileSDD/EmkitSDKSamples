@@ -1,0 +1,31 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreference android:key="enabled_screen_capture"
+        android:title="@string/pref_title_enabled_screen_capture"
+        android:persistent="false" />
+
+    <SwitchPreference android:key="lock_unknown_sources_option"
+        android:title="@string/pref_title_lock_below_option"
+        android:persistent="false" />
+
+    <SwitchPreference android:key="unknown_sources"
+        android:title="@string/pref_title_unknown_sources"
+        android:persistent="false" />
+
+    <SwitchPreference android:key="disallow_unknown_sources"
+        android:title="@string/pref_title_disallow_unknown_sources"
+        android:persistent="false" />
+
+    <SwitchPreference android:key="disallow_camera"
+        android:title="@string/pref_title_disallow_camera"
+        android:persistent="false" />
+
+    <SwitchPreference android:key="disallow_factory_reset"
+        android:title="@string/pref_title_disallow_factory_reset"
+        android:persistent="false" />
+
+    <Preference android:key="factory_reset"
+        android:title="@string/pref_title_factory_reset"
+        android:summary="@string/pref_summary_factory_reset" />
+
+</PreferenceScreen>

@@ -1,0 +1,19 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SeekBarPreference
+        android:key="brightness_level"
+        android:title="@string/pref_title_brightness_level" />
+
+    <DropDownPreference
+        android:key="auto_rotate"
+        android:title="@string/pref_title_auto_rotate" />
+
+    <ListPreference
+        android:key="screen_timeout"
+        android:title="@string/pref_title_screen_timeout"
+        android:summary="@string/pref_summary_screen_timeout"
+        android:persistent="false"
+        android:entries="@array/screen_timeout_entries"
+        android:entryValues="@array/screen_timeout_values" />
+
+</PreferenceScreen>

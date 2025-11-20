@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Application -->
+    <string name="app_name">MSR Sample</string>
+    <string name="msg_version_suffix">Unknown</string>
+    <string name="action_info">Info.</string>
+    <!-- UI -->
+    <string name="btn_read_start">Read Start</string>
+    <string name="btn_read_init">Init Start</string>
+    <string name="btn_read_stop">Read Stop</string>
+    <string name="label_read_result">Result :</string>
+    <string name="hind_read_result">Card Information.</string>
+    <string name="read_fail">Card read failure.</string>
+    <string name="wait_msg">Please wait....</string>
+    <string name="require_swipe_card">Please swipe a card.</string>
+    <string name="label_auto_scan">Auto repeat</string>
+    <string name="label_save_log">Save log</string>
+    <string name="label_beep_sound">Beep sound</string>
+
+    <string name="hint_msr_status">Read status :</string>
+    <string name="hint_msr_status_value">Track read status displayed success or failed</string>
+    <string name="hint_msr_track1">Track1 :</string>
+    <string name="hint_msr_track2">Track2 :</string>
+    <string name="hint_msr_track3">Track3 :</string>
+    <string name="hint_msr_track">Track value</string>
+    <string name="hint_msr_result">Result</string>
+
+</resources>

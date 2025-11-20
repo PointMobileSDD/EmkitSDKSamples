@@ -1,0 +1,53 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SeekBarPreference
+        android:key="media_volume"
+        android:title="@string/pref_title_media_volume" />
+
+    <SeekBarPreference
+        android:key="alarm_volume"
+        android:title="@string/pref_title_alarm_volume" />
+
+    <SeekBarPreference
+        android:key="ring_volume"
+        android:title="@string/pref_title_ring_volume" />
+
+    <SeekBarPreference
+        android:key="notification_volume"
+        android:title="@string/pref_title_notification_volume" />
+
+    <SwitchPreference android:key="dialpad_tones"
+        android:title="@string/pref_title_dialpad_tones"
+        android:persistent="false" />
+
+    <SwitchPreference android:key="screen_locking_sounds"
+        android:title="@string/pref_title_screen_locking_sounds"
+        android:persistent="false" />
+
+    <SwitchPreference android:key="charging_sounds"
+        android:title="@string/pref_title_charging_sounds"
+        android:persistent="false" />
+
+    <SwitchPreference android:key="docking_sounds"
+        android:title="@string/pref_title_docking_sounds"
+        android:persistent="false" />
+
+    <SwitchPreference android:key="touch_sounds"
+        android:title="@string/pref_title_touch_sounds"
+        android:persistent="false" />
+
+    <SwitchPreference android:key="vibrate_on_touch"
+        android:title="@string/pref_title_vibrate_on_touch"
+        android:persistent="false" />
+
+    <DropDownPreference android:key="dock_audio_media"
+        android:title="@string/pref_title_dock_audio_media"
+        android:entries="@array/dock_audio_media_entries"
+        android:entryValues="@array/dock_audio_media_values" />
+
+    <DropDownPreference android:key="emergency_tones"
+        android:title="@string/pref_title_emergency_tones"
+        android:entries="@array/emergency_tones_entries"
+        android:entryValues="@array/emergency_tones_values" />
+
+</PreferenceScreen>

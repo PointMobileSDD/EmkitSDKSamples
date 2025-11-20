@@ -1,0 +1,24 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreference android:key="lock_nfc_option"
+        android:title="@string/pref_title_lock_below_option"
+        android:persistent="false" />
+
+    <SwitchPreference android:key="enabled_nfc"
+        android:title="@string/pref_title_enabled_nfc"
+        android:persistent="false" />
+
+    <SwitchPreference android:key="airplane_mode"
+        android:title="@string/pref_title_airplane_mode"
+        android:persistent="false" />
+
+    <DropDownPreference android:key="enabled_wifi_on_sleep"
+        android:title="@string/pref_title_enabled_wifi_on_sleep"
+        android:entries="@array/enabled_wifi_on_sleep_entries"
+        android:entryValues="@array/enabled_wifi_on_sleep_entries" />
+
+    <SwitchPreference android:key="enabled_wifi"
+        android:title="@string/pref_title_enabled_wifi"
+        android:persistent="false" />
+
+</PreferenceScreen>
