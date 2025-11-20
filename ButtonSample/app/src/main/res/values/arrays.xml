@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="keypad_mode_entries">
+        <item>KEYPAD_MODE_NORMAL</item>
+        <item>KEYPAD_MODE_NUMBER</item>
+        <item>KEYPAD_MODE_LOWERCASE</item>
+        <item>KEYPAD_MODE_UPPERCASE</item>
+        <item>KEYPAD_MODE_FUNCTION</item>
+    </string-array>
+</resources>

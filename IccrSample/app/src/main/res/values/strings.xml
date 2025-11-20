@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">ICCR Sample Demo</string>
+    <string name="action_info">info.</string>
+    <string name="msg_version_suffix">Unknown</string>
+    <string name="atr_str">ATR (Power On)</string>
+    <string name="apdu_str">Send APDU</string>
+    <string name="power_down_str">Power Off</string>
+    <string name="card_inserted">Card inserted</string>
+    <string name="card_not_inserted">Card not inserted</string>
+    <string name="status_str">Status</string>
+    <string name="hex_str">Hex Code</string>
+    <string name="hex_input_str">APDU Hex Code</string>
+    <string name="get_emv_num">Get Payment</string>
+    <string name="result_status">Result</string>
+    <string name="atr_on_success_str">Success: Both of Power and ATR are on.</string>
+    <string name="atr_on_fail_str">Failed: Both of Power and ATR are unreadable.</string>
+    <string name="atr_power_down">Power off</string>
+    <string name="apdu_error_str">Please check the status of card insertion, or ATR</string>
+    <string name="radio_iso">ISO</string>
+    <string name="radio_emv">EMV</string>
+    <string name="null_str">Null</string>
+    <string name="wait_str">waiting for card insertion...</string>
+    <string name="ejection_str">please remove the card.</string>
+</resources>
