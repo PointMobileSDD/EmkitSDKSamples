@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="device.sdk.sample.serial" >
+
+    <application
+        android:name=".PortApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="@string/application_label" >
+        <uses-library
+            android:name="device.sdk"
+            android:required="true" />
+
+        <activity android:name=".PortActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SetupPreferences"
+            android:label="@string/action_setup" />
+        <activity
+            android:name=".ConsoleActivity"
+            android:label="@string/title_console" />
+    </application>
+
+</manifest>

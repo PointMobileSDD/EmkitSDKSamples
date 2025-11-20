@@ -1,0 +1,146 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    tools:context="device.sdk.sample.sam.SamSampleActivity" >
+
+    <LinearLayout
+        android:id="@+id/layout_sam_atr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="100dip"
+            android:layout_height="match_parent"
+            android:text="@string/hint_sam_atr" />
+
+        <TextView
+            android:id="@+id/textViewSamAtrValue"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minHeight="80px"
+            android:hint="@string/hint_sam_atr"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_button_atr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip" >
+
+        <Button
+            android:id="@+id/BtnSamATR"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="100px"
+            android:text="@string/btn_sam_atr" />
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/layout_button_powerdown"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip" >
+
+        <Button
+            android:id="@+id/BtnSamPowerDown"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="100px"
+            android:text="@string/btn_sam_powerdown" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_sam_apdu_write_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dip"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="100dip"
+            android:layout_height="wrap_content"
+            android:text="@string/label_sam_apdu_write_data" />
+
+        <EditText
+            android:id="@+id/edittextWriteData"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="text"
+            android:singleLine="true"
+            android:hint="@string/hint_sam_apdu_write_data" >
+        </EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_button_apdu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip" >
+
+        <Button
+            android:id="@+id/BtnSamAPDU"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="100px"
+            android:text="@string/btn_sam_apdu" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_sam_apdu_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dip"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="100dip"
+            android:layout_height="wrap_content"
+            android:text="@string/hint_sam_apdu_value" />
+
+        <TextView
+            android:id="@+id/textViewApduValue"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:minHeight="120px"
+            android:layout_weight="1"
+            android:hint="@string/hint_sam_apdu_value"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_sam_apdu_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="100dip"
+            android:layout_height="wrap_content"
+            android:text="@string/hint_sam_apdu" />
+
+        <TextView
+            android:id="@+id/textViewApduResult"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:minHeight="540px"
+            android:layout_weight="1"
+            android:hint="@string/hint_sam_apdu"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

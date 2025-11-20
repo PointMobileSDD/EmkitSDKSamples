@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SAM Sample</string>
+    <string name="activity_name">SAM Sample</string>
+    <string name="msg_version_suffix">Unknown</string>
+    <string name="action_info">Info.</string>
+    <string name="action_settings">Settings</string>
+    <string name="label_sam_atrvalue">Sam return value</string>
+    <string name="hint_sam_atr">Sam result</string>
+    <string name="label_sam_apduvalue">APDU return value</string>
+    <string name="hint_sam_apdu">Apdu result</string>
+    <string name="hint_sam_apdu_value">Apdu value</string>
+    <string name="label_sam_apdu_write_data">Hex Code</string>
+    <string name="hint_sam_apdu_write_data">APDU Hex Code</string>
+    <string name="btn_sam_atr">ATR(Power up)</string>
+    <string name="btn_sam_apdu">APDU</string>
+    <string name="btn_sam_powerdown">Power Down</string>
+    
+</resources>
