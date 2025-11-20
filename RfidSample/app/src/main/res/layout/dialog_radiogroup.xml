@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:gravity="center" >
+
+	<RelativeLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:padding="10dp"
+		android:background="#ffffffff">
+
+		<TextView
+			android:id="@+id/tv_title"
+			style="@style/black_bold_18_font"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="10dp"
+			android:layout_marginLeft="10dp"
+			android:gravity="left"
+			android:singleLine="true"
+			android:text="title"/>
+
+		<RadioGroup
+			android:id="@+id/radio_contents"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:layout_marginLeft="10dp"
+			android:layout_below="@+id/tv_title"
+			android:orientation="vertical">
+
+		</RadioGroup>
+		
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:paddingRight="10dp"
+			android:layout_below="@id/radio_contents">
+
+			<Button
+				android:id="@+id/btn_apply"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignParentRight="true"
+				android:background="@drawable/btn_bg"
+				android:padding="10dp"
+				android:textSize="14dp"
+				android:textColor="#ffff0011"
+				android:text="OK"/>
+
+			<Button
+				android:id="@+id/btn_cancel"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_toLeftOf="@+id/btn_apply"
+				android:background="@drawable/btn_bg"
+				android:layout_marginRight="10dp"
+				android:padding="10dp"
+				android:textSize="14dp"
+				android:textColor="#ffff0011"
+				android:text="CANCEL"/>
+		</RelativeLayout>
+	</RelativeLayout>
+
+</LinearLayout>

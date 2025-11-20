@@ -1,0 +1,114 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/Blue</item>
+        <item name="colorPrimaryDark">@color/DarkBlue</item>
+        <item name="colorAccent">@color/Pink</item>
+    </style>
+
+    <style name="AppTheme.Button" parent="Base.Widget.AppCompat.Button">
+        <item name="colorButtonNormal">@color/Blue</item>
+    </style>
+
+<!--    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">-->
+<!--        &lt;!&ndash; Customize your theme here. &ndash;&gt;-->
+<!--        <item name="colorPrimary">@color/Blue</item>-->
+<!--        <item name="colorPrimaryDark">@color/DarkBlue</item>-->
+<!--        <item name="colorAccent">@color/Pink</item>-->
+<!--        <item name="android:actionButtonStyle">@style/myActionButtonStyle</item>-->
+<!--        <item name="actionButtonStyle">@style/myActionButtonStyle</item>-->
+<!--    </style>-->
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="AppTheme.FullScreen" parent="android:Theme.NoTitleBar.Fullscreen" >
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.Setting" parent="Theme.AppCompat.Light.DarkActionBar" >
+        <item name="colorPrimary">@color/Blue</item>
+        <item name="colorPrimaryDark">@color/DarkBlue</item>
+        <item name="colorAccent">@color/Pink</item>
+
+    </style>
+
+    <style name="Theme.MyActivityTheme" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">@color/Blue_40</item>
+    </style>
+
+
+<!--    <style name="myActionButtonStyle" parent="Widget.AppCompat.ActionButton">-->
+<!--        <item name="android:minWidth">30dp</item>-->
+<!--        <item name="android:maxWidth">58dp</item>-->
+<!--        <item name="android:width">58dp</item>-->
+<!--        <item name="android:padding">58dp</item>-->
+<!--    </style>-->
+
+
+
+    <style name="col_808080_16_font">
+        <item name="android:textColor">#808080</item>
+        <item name="android:textSize">16dp</item>
+    </style>
+
+    <style name="col_808080_14_font">
+        <item name="android:textColor">#808080</item>
+        <item name="android:textSize">14dp</item>
+    </style>
+
+    <style name="black_bold_18_font">
+        <item name="android:textColor">@color/Black</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18dp</item>
+    </style>
+
+    <style name="black_bold_16_font">
+        <item name="android:textColor">@color/Black</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16dp</item>
+    </style>
+
+    <style name="black_16_font">
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">16dp</item>
+    </style>
+
+    <style name="black_14_font">
+        <item name="android:textColor">@color/Black</item>
+        <item name="android:textSize">14dp</item>
+    </style>
+
+    <style name="black_12_font">
+        <item name="android:textColor">@color/Black</item>
+        <item name="android:textSize">12dp</item>
+    </style>
+
+
+    <style name="red_12_font">
+        <item name="android:textColor">@color/Red</item>
+        <item name="android:textSize">12dp</item>
+    </style>
+
+    <style name="white_12_font">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">12dp</item>
+    </style>
+
+    <style name="white_14_font">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">14dp</item>
+    </style>
+
+    <style name="multi_lines">
+        <item name="android:lines">3</item>
+    </style>
+
+</resources>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".TapToPairActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="30dp">
+
+        <TextView
+            style="@style/black_14_font"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nfc_explanation" />
+
+        <ImageView
+            android:id="@+id/iv_tap_to_pair_rf851"
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="40dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/rf_tap_to_pair_rf851"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/iv_tap_to_pair_rf300"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_marginTop="40dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/tap_to_pair_rf300"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+</LinearLayout>
