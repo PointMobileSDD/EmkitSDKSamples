@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">tPreview</string>
+    <string name="preview">Preview</string>
+    <string name="msg_wait">Waiting&#8230;</string>
+
+</resources>

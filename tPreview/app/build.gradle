@@ -1,0 +1,25 @@
+apply plugin: 'com.android.application'
+
+android {
+    namespace "device.sdk.sample.preview"
+    compileSdkVersion 35
+    buildToolsVersion '35.0.1'
+
+    defaultConfig {
+        applicationId "device.sdk.sample.preview"
+        minSdkVersion 21
+        targetSdkVersion 35
+        versionCode 202
+        versionName "2.2"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    //compileOnly fileTree(dir: '../../../lib')
+    compileOnly fileTree(dir: 'libs', include: ['*.jar'])
+}
