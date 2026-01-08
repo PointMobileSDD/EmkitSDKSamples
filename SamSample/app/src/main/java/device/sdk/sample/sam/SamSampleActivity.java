@@ -14,6 +14,11 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
+
 import device.sdk.SamManager;
 import device.common.SamIndex;
 
@@ -57,6 +62,15 @@ public class SamSampleActivity extends Activity  implements View.OnClickListener
 		mApduValueTextView = (TextView) findViewById(R.id.textViewApduValue);
 		mApduValueTextView.setMovementMethod(new ScrollingMovementMethod());
 		mApduValueEditText = (EditText) findViewById(R.id.edittextWriteData);
+
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), true);
+
+        View rootView = findViewById(R.id.root_view);
+        ViewCompat.setOnApplyWindowInsetsListener(rootView, (v, windowInsets) -> {
+            Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(insets.left, insets.top, insets.right, insets.bottom);
+            return WindowInsetsCompat.CONSUMED;
+        });
 
 		mSam = new SamManager();
 		if(mSam != null) {

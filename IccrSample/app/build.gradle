@@ -9,8 +9,8 @@ android {
         applicationId "device.sdk.sample.iccr"
         minSdkVersion 21
         targetSdkVersion 35
-        versionCode 101
-        versionName "1.1"
+        versionCode 100002
+        versionName "1.0.2"
     }
 
     compileOptions {
@@ -25,4 +25,5 @@ dependencies {
 
     //compileOnly fileTree(dir: '../../../lib')
     compileOnly fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.core:core:1.12.0'
 }

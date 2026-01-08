@@ -24,6 +24,11 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
+
 import device.sdk.sample.mdm.R;
 
 public class AppPicker extends ListActivity {
@@ -34,6 +39,20 @@ public class AppPicker extends ListActivity {
     @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+        
+        // Enable edge-to-edge display for Android 15
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+        
+        // Apply window insets to the root view
+        View rootView = getWindow().getDecorView().findViewById(android.R.id.content);
+        if (rootView != null) {
+            ViewCompat.setOnApplyWindowInsetsListener(rootView, (v, windowInsets) -> {
+                Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+                v.setPadding(insets.left, insets.top, insets.right, insets.bottom);
+                return WindowInsetsCompat.CONSUMED;
+            });
+        }
+        
         mPermissionName = getIntent().getStringExtra(EXTRA_REQUESTIING_PERMISSION);
         mAdapter = new AppListAdapter(this);
         if (mAdapter.getCount() <= 0) {

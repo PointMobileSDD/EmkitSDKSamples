@@ -20,6 +20,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowCompat;
 
 public class PortActivity extends ListActivity {
     private static final String TAG = PortActivity.class.getSimpleName();
@@ -29,9 +33,18 @@ public class PortActivity extends ListActivity {
         Log.d(TAG, "onCreate()");
         super.onCreate(savedInstanceState);
 
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), true);
+
         setListAdapter(new SimpleAdapter(this, getList(), android.R.layout.simple_list_item_1, new String[] {"title"},
                 new int[] {android.R.id.text1}));
         getListView().setTextFilterEnabled(true);
+
+        ListView listView = getListView();
+        ViewCompat.setOnApplyWindowInsetsListener(listView, (v, windowInsets) -> {
+            Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(insets.left, insets.top, insets.right, insets.bottom);
+            return WindowInsetsCompat.CONSUMED;
+        });
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

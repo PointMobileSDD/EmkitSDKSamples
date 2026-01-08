@@ -9,6 +9,10 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowCompat;
 
 public class ConsoleActivity extends BaseActivity {
 	private static final String TAG = ConsoleActivity.class.getSimpleName();
@@ -28,11 +32,23 @@ public class ConsoleActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		Log.d(TAG, "onCreate()");
 		super.onCreate(savedInstanceState);
+
+		WindowCompat.setDecorFitsSystemWindows(getWindow(), true);
+		
 		setContentView(R.layout.activity_console);
 
 		mScroll = (ScrollView) findViewById(R.id.scrollReception);
 		mLayout = (LinearLayout) findViewById(R.id.layoutReception);
 		mInput = (EditText) findViewById(R.id.editEmission);
+
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), true);
+
+		View rootView = findViewById(R.id.root_layout);
+		ViewCompat.setOnApplyWindowInsetsListener(rootView, (v, windowInsets) -> {
+			Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+			v.setPadding(insets.left, insets.top, insets.right, insets.bottom);
+			return WindowInsetsCompat.CONSUMED;
+		});
 
 		((Button) findViewById(R.id.button_send)).setOnClickListener(new OnClickListener() {
 			@Override

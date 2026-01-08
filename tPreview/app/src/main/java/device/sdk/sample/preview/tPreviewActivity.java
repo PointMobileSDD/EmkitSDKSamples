@@ -22,6 +22,11 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -112,6 +117,15 @@ public class tPreviewActivity extends Activity {
         }catch(ArrayIndexOutOfBoundsException e){
             e.printStackTrace();
         }
+
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), true);
+
+        View rootView = findViewById(R.id.root_view);
+        ViewCompat.setOnApplyWindowInsetsListener(rootView, (v, windowInsets) -> {
+            Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(insets.left, insets.top, insets.right, insets.bottom);
+            return WindowInsetsCompat.CONSUMED;
+        });
 
         mContext = this;
         mScanner = new ScanManager();

@@ -18,6 +18,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
+
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
+
 import device.sdk.MsrManager;
 import device.common.MsrResultCallback;
 
@@ -48,6 +54,17 @@ public class IccrSampleActivity extends Activity {
         setContentView(R.layout.activity_iccr_sample);
 
         Initialize();
+
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), true);
+
+        View rootView = findViewById(R.id.mainGridView);
+        ViewCompat.setOnApplyWindowInsetsListener(rootView, (v, windowInsets) -> {
+            Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(insets.left, insets.top, insets.right, insets.bottom);
+            return WindowInsetsCompat.CONSUMED;
+        });
+
+
     }
     @Override
     protected void onStop() {

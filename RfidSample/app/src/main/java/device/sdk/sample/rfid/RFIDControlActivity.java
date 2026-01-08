@@ -1,5 +1,6 @@
 package device.sdk.sample.rfid;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -13,6 +14,7 @@ import android.content.IntentFilter;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -32,9 +34,11 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
@@ -59,6 +63,7 @@ public class RFIDControlActivity extends BaseActivity {
     private static final int REQUEST_SEARCH_RFIDREADER = 0x1002;
     private static final int REQUEST_TAP_TO_PAIR = 0x1003;
     private static final int REQUEST_FW_UPDATE = 0x1004;
+    private static final int REQUEST_BLUETOOTH_PERMISSIONS = 0x1005;
 
     private static final int REQUEST_CONNECT = 0x1001;
     private static final int REQUEST_DISCONNECT = 0x1002;
@@ -515,12 +520,66 @@ public class RFIDControlActivity extends BaseActivity {
 
     private void bluetoothOn() {
         Log.d(TAG, "bluetoothOn");
+        
+        // Check for Bluetooth permissions on Android 12 and above
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            if (!hasBluetoothPermissions()) {
+                requestBluetoothPermissions();
+                return;
+            }
+        }
+        
         if(!mBluetoothAdapter.isEnabled()
                 && mPrefUtil.getStringPreference(PreferenceUtil.KEY_OPEN_OPTION, mUtil.getDefaultOption()).equalsIgnoreCase(OpenOption.BLUETOOTH.toString())) {
             setSwitchChanged(false);
             mTextRfidName.setText("");
             Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
             startActivityForResult(enableBtIntent, REQUEST_BLUETOOTH);
+        }
+    }
+    
+    private boolean hasBluetoothPermissions() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            return ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) 
+                    == PackageManager.PERMISSION_GRANTED &&
+                   ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_SCAN) 
+                    == PackageManager.PERMISSION_GRANTED;
+        }
+        return true;
+    }
+    
+    private void requestBluetoothPermissions() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{
+                            Manifest.permission.BLUETOOTH_CONNECT,
+                            Manifest.permission.BLUETOOTH_SCAN
+                    },
+                    REQUEST_BLUETOOTH_PERMISSIONS);
+        }
+    }
+    
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        
+        if (requestCode == REQUEST_BLUETOOTH_PERMISSIONS) {
+            boolean allGranted = true;
+            for (int result : grantResults) {
+                if (result != PackageManager.PERMISSION_GRANTED) {
+                    allGranted = false;
+                    break;
+                }
+            }
+            
+            if (allGranted) {
+                // Permissions granted, proceed with Bluetooth operations
+                bluetoothOn();
+            } else {
+                // Permissions denied
+                Toast.makeText(this, "Bluetooth permissions are required for this app to function", Toast.LENGTH_LONG).show();
+                finish();
+            }
         }
     }
 
@@ -672,6 +731,15 @@ public class RFIDControlActivity extends BaseActivity {
                 BluetoothDevice rfDevice = mBluetoothAdapter.getRemoteDevice(macAddr);
 
                 boolean already_bonded_flag = false;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                    if (ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) 
+                            != PackageManager.PERMISSION_GRANTED) {
+                        requestBluetoothPermissions();
+                        setSwitchChanged(false);
+                        return;
+                    }
+                }
+                
                 Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
                 int pairedDeviceCount = pairedDevices.size();
                 if(pairedDeviceCount > 0) {

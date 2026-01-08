@@ -20,6 +20,11 @@ import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.TextView;
 
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
+
 import device.common.DecodeResult;
 import device.common.DecodeStateCallback;
 import device.common.ScanConst;
@@ -101,6 +106,15 @@ public class MainActivity extends Activity {
         {
             return;
         }
+
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), true);
+
+        View rootView = findViewById(R.id.root_view);
+        ViewCompat.setOnApplyWindowInsetsListener(rootView, (v, windowInsets) -> {
+            Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(insets.left, insets.top, insets.right, insets.bottom);
+            return WindowInsetsCompat.CONSUMED;
+        });
 
         mScanner = new ScanManager();
         mDecodeResult = new DecodeResult();

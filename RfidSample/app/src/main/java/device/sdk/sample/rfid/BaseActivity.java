@@ -4,9 +4,15 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 import device.sdk.sample.rfid.R;
 
@@ -19,6 +25,47 @@ public class BaseActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+    }
+    
+    @Override
+    public void setContentView(int layoutResID) {
+        super.setContentView(layoutResID);
+        setupWindowInsets();
+    }
+    
+    @Override
+    public void setContentView(View view) {
+        super.setContentView(view);
+        setupWindowInsets();
+    }
+    
+    @Override
+    public void setContentView(View view, ViewGroup.LayoutParams params) {
+        super.setContentView(view, params);
+        setupWindowInsets();
+    }
+    
+    private void setupWindowInsets() {
+        // Enable edge-to-edge display
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+        
+        // Try to find the root_layout first, otherwise use content view
+        View rootView = findViewById(R.id.root_layout);
+        if (rootView == null) {
+            rootView = findViewById(android.R.id.content);
+        }
+        
+        if (rootView != null) {
+            final View finalRootView = rootView;
+            ViewCompat.setOnApplyWindowInsetsListener(rootView, (v, windowInsets) -> {
+                Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+                
+                // Apply padding to the root view to avoid overlapping with system bars
+                finalRootView.setPadding(insets.left, insets.top, insets.right, insets.bottom);
+                
+                return WindowInsetsCompat.CONSUMED;
+            });
+        }
     }
 
     @Override

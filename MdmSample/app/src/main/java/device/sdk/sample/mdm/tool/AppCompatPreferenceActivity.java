@@ -12,6 +12,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 /**
  * A {@link android.preference.PreferenceActivity} which implements and proxies the necessary calls
@@ -26,12 +30,29 @@ public abstract class AppCompatPreferenceActivity extends PreferenceActivity {
         getDelegate().installViewFactory();
         getDelegate().onCreate(savedInstanceState);
         super.onCreate(savedInstanceState);
+        
+        // Enable edge-to-edge display for Android 15
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
     }
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         getDelegate().onPostCreate(savedInstanceState);
+        
+        // Apply window insets to the root view
+        applyWindowInsets();
+    }
+    
+    private void applyWindowInsets() {
+        View rootView = getWindow().getDecorView().findViewById(android.R.id.content);
+        if (rootView != null) {
+            ViewCompat.setOnApplyWindowInsetsListener(rootView, (v, windowInsets) -> {
+                Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+                v.setPadding(insets.left, insets.top, insets.right, insets.bottom);
+                return WindowInsetsCompat.CONSUMED;
+            });
+        }
     }
 
     public ActionBar getSupportActionBar() {

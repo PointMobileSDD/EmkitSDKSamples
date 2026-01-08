@@ -21,6 +21,11 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
+
 public class MsrSampleActivity extends Activity {
 	private static final String TAG = MsrSampleActivity.class.getSimpleName();
 
@@ -142,6 +147,15 @@ public class MsrSampleActivity extends Activity {
 		mResultTextView = (TextView) findViewById(R.id.textViewMsrResult);
 		mAutoScanModeCheck = (CheckBox) findViewById(R.id.check_auto_scan);
 		mStartReadButton = (Button) findViewById(R.id.button_card_reader);
+
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), true);
+
+        View rootView = findViewById(R.id.root_view);
+        ViewCompat.setOnApplyWindowInsetsListener(rootView, (v, windowInsets) -> {
+            Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(insets.left, insets.top, insets.right, insets.bottom);
+            return WindowInsetsCompat.CONSUMED;
+        });
 		
 		mStartReadButton.setOnClickListener(new OnClickListener() {
 			@Override

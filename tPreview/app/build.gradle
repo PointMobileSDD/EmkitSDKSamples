@@ -9,8 +9,8 @@ android {
         applicationId "device.sdk.sample.preview"
         minSdkVersion 21
         targetSdkVersion 35
-        versionCode 202
-        versionName "2.2"
+        versionCode 200003
+        versionName "2.0.3"
     }
 
     compileOptions {
@@ -22,4 +22,5 @@ android {
 dependencies {
     //compileOnly fileTree(dir: '../../../lib')
     compileOnly fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.core:core:1.12.0'
 }
